@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------|            |------+------+------+------+------+------+------|
  * | Esc  |   A  |   S  |   D  |   F  |   G  | PgUp |            | End  |   H  |   J  |   K  |   L  |   ;  |   '  |
  * |------+------+------+------+------+------+------|            |------+------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  | PgDn |            | Home |   N  |   M  |   ,  |   .  |   \  |Shift |
+ * | Shift|   Z  |   X  |   C  |   V  |   B  | PgDn |            | Home |   N  |   M  |   ,  |   .  |   /  |Shift |
  * |------+------+------+------+------+------+------|            |------+------+------+------+------+------+------|
  * |  Gui |   +  |   -  |*(Alt)|/(Ctr)|Bcksp | Del  |            |Enter |Space |  Alt | Left | Down |  Up  | Right|
  * `------------------------------------------------'            `------------------------------------------------'
@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----|                                                         |----+----+----+----+----+----+----|
      KC_LSFT, KC_Z  , KC_X  , KC_C  , KC_V  , KC_B  ,KC_PGDN,                                      KC_HOME , KC_N  , KC_M  ,KC_COMM,KC_DOT ,KC_SLASH, KC_RSFT,
   //|----+----+----+----+----+----+----|                                                         |----+----+----+----+----+----+----|
-     KC_LGUI,KC_PPLS,KC_PMNS,LALT_T(KC_PAST),LCTL_T(KC_PSLS),KC_BSPC,KC_DEL ,                     KC_ENT , KC_SPC, KC_RALT,KC_LEFT,KC_DOWN, KC_UP ,KC_RGHT
+     KC_LGUI,KC_PPLS,KC_PMNS,LALT_T(KC_PAST),LCTL_T(KC_PSLS),KC_BSPC,KC_DEL ,                     KC_ENT , KC_SPC, MO(_NAV) ,KC_LEFT,KC_DOWN, KC_UP ,KC_RGHT
   //`----+----+----+----+----+----+----'                                                         `----+----+----+----+----+----+----'
   ),
 
@@ -90,8 +90,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
   [_NAV] = LAYOUT(
     _______, _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______, _______,
-    XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, KC_WH_U, XXXXXXX, _______,                            _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, XXXXXXX, _______,                            _______, KC_LEFT, KC_DOWN, KC_UP  , KC_RIGHT,XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, KC_WH_U, XXXXXXX, _______,                            _______, XXXXXXX, KC_HOME, XXXXXXX, KC_END,  XXXXXXX, XXXXXXX,
+    XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, XXXXXXX, _______,                            _______, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP  , KC_RIGHT, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                            _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN1, KC_BTN2, _______,                            _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
   ),
