@@ -42,6 +42,7 @@ doxygen/
 .cproject
 .project
 .settings/
+.vscode/
 .idea
 *.iml
 .browse.VC.db*
