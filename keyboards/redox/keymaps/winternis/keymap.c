@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB,    BP_B,     BP_ECUT, BP_P ,   BP_O,     BP_EGRV, KC_ESC,               /**/            BP_PERC,  BP_DCRC, BP_V,   BP_D,    BP_L,    BP_J,    BP_Z,
      KC_LSFT,   BP_A,     BP_U,    BP_I,    BP_E,     BP_COMM, KC_SPC,               /**/            BP_W,     BP_C,    BP_T,   BP_S,    BP_R,    BP_N,    BP_M,
      KC_LSFT,   BP_AGRV,  BP_Y,    BP_X ,   BP_DOT,   BP_K,    KC_DEL,   KC_ENT,     /**/   KC_UNDO, KC_AGIN,  BP_APOS, BP_Q,   BP_G,    BP_H ,   BP_F,    BP_CCED,
-     MO(_SYMB), KC_LCTRL, KC_LALT, KC_SPC,      KC_LGUI,       KC_BSPC,  LT_NAV,   /**/   KC_ENT,  KC_SPC,      KC_RALT,      XXXXXXX, XXXXXXX, XXXXXXX,   DF(_QWERTY)
+     MO(_SYMB), KC_LCTRL, KC_LALT, KC_SPC,      KC_LGUI,       KC_BSPC,  LT_NAV,   /**/   KC_ENT,  KC_SPC,      KC_RALT,      XXXXXXX, XXXXXXX, CG_TOGG,   DF(_QWERTY)
   ),
 
   [_QWERTY] = LAYOUT(
@@ -85,8 +85,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_SYMB] = LAYOUT(
     XXXXXXX, KC_F1,      KC_F2,      KC_F3,      KC_F4,   KC_F5,                                              XXXXXXX, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,
     KC_VOLU, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, _______,                          XXXXXXX, XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, XXXXXXX, XXXXXXX,
-    KC_VOLD, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX,                          XXXXXXX, XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, XXXXXXX, XXXXXXX,
-    XXXXXXX, LGUI(BP_X), LGUI(BP_C), LGUI(BP_V), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        _______, _______, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX, XXXXXXX,
+    KC_VOLD, LCTL(BP_X), LCTL(BP_C), LCTL(BP_V),    XXXXXXX, XXXXXXX, XXXXXXX,                          XXXXXXX, XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, XXXXXXX, XXXXXXX,
+    _______, LCTL(BP_X), LCTL(BP_C), LCTL(BP_V), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        _______, _______, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX, XXXXXXX,
     _______, XXXXXXX,    XXXXXXX,    XXXXXXX,         XXXXXXX,     _______, _______,        _______, _______,      KC_KP_0,     KC_KP_0, KC_PDOT, XXXXXXX, XXXXXXX
   ),
 
@@ -116,8 +116,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef AUDIO_ENABLE
 float tone_qwerty[][2]     = SONG(QWERTY_SOUND);
 #endif
-
-void persistent_default_layer_set(uint16_t default_layer) {
-  eeconfig_update_default_layer(default_layer);
-  default_layer_set(default_layer);
-}
