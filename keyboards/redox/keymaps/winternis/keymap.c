@@ -104,6 +104,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+const key_override_t space_without_shift = ko_make_with_layers_negmods_and_options(
+    MOD_MASK_SHIFT, KC_SPC, KC_SPC, ~0, 0,
+    ko_option_activation_trigger_down | ko_option_no_reregister_trigger);
+
+const key_override_t *key_overrides[] = {
+    &space_without_shift,
+};
+
 #ifdef AUDIO_ENABLE
 float tone_qwerty[][2]     = SONG(QWERTY_SOUND);
 #endif
