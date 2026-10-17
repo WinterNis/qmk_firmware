@@ -5,19 +5,9 @@
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
-#define _BEPO_MAC 0
-#define _BEPO 1
-#define _SYMB_MAC 2
-#define _SYMB 3
-#define _NAV 4
-
-enum custom_keycodes {
-  BEPO_MAC = SAFE_RANGE,
-  BEPO,
-  SYMB_MAC,
-  SYMB,
-  NAV,
-};
+#define _BEPO 0
+#define _SYMB 1
+#define _NAV 2
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -35,20 +25,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------'            `------------------------------------------------'
  */
 
-  [_BEPO_MAC] = LAYOUT(
+  [_BEPO] = LAYOUT(
      BP_DLR,    BP_DQUO,  BP_LDAQ, BP_RDAQ, BP_LPRN,  BP_RPRN,                        /**/                      BP_AT,   BP_PLUS, BP_MINS, BP_SLSH, BP_ASTR, BP_EQL,
      KC_TAB,    BP_B,     BP_EACU, BP_P ,   BP_O,     BP_EGRV, KC_ESC,                /**/            BP_PERC,  BP_DCIR, BP_V,   BP_D,    BP_L,    BP_J,    BP_Z,
      KC_LSFT,   BP_A,     BP_U,    BP_I,    BP_E,     BP_COMM, KC_SPC,                /**/            BP_W,     BP_C,    BP_T,   BP_S,    BP_R,    BP_N,    BP_M,
-     KC_LSFT,   BP_AGRV,  BP_Y,    BP_X ,   BP_DOT,   BP_K,    KC_DEL,   KC_ENT,      /**/   KC_UNDO, KC_AGIN,  BP_QUOT, BP_Q,   BP_G,    BP_H ,   BP_F,    BP_CCED,
-     MO(_SYMB_MAC), KC_LCTL, KC_LALT, KC_SPC,      KC_LGUI,       KC_BSPC,  MO(_NAV),/**/   KC_ENT,  KC_SPC,      KC_RALT,      XXXXXXX, XXXXXXX, CG_TOGG, XXXXXXX
-  ),
-
-  [_BEPO] = LAYOUT(
-     BP_DLR,    BP_DQUO,  BP_LDAQ, BP_RDAQ, BP_LPRN,  BP_RPRN,                       /**/                      BP_AT,   BP_PLUS, BP_MINS, BP_SLSH, BP_ASTR, BP_EQL,
-     KC_TAB,    BP_B,     BP_EACU, BP_P ,   BP_O,     BP_EGRV, KC_ESC,               /**/            BP_PERC,  BP_DCIR, BP_V,   BP_D,    BP_L,    BP_J,    BP_Z,
-     KC_LSFT,   BP_A,     BP_U,    BP_I,    BP_E,     BP_COMM, KC_SPC,               /**/            BP_W,     BP_C,    BP_T,   BP_S,    BP_R,    BP_N,    BP_M,
-     KC_LSFT,   BP_AGRV,  BP_Y,    BP_X ,   BP_DOT,   BP_K,    KC_DEL,   KC_ENT,     /**/   KC_UNDO, KC_AGIN,  BP_QUOT, BP_Q,   BP_G,    BP_H ,   BP_F,    BP_CCED,
-     MO(_SYMB), KC_LCTL, KC_LALT, KC_SPC,      KC_LGUI,       KC_BSPC,  MO(_NAV),   /**/   KC_ENT,  KC_SPC,      KC_RALT,      XXXXXXX, XXXXXXX, CG_TOGG, DF(_BEPO_MAC)
+     KC_LSFT,   BP_AGRV,  BP_Y,    BP_X ,   BP_DOT,   BP_K,    KC_DEL,   KC_ENT,      /**/   LGUI(BP_Z), LGUI(S(BP_Z)), BP_QUOT, BP_Q, BP_G, BP_H ,   BP_F,    BP_CCED,
+     MO(_SYMB), KC_LCTL, KC_LALT, KC_SPC,      KC_LGUI,       KC_BSPC,  MO(_NAV),    /**/   KC_ENT,  KC_SPC,      KC_RALT,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
 /* Symbols
@@ -65,20 +47,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------'      `------------------------------------------------'
  */
 
-   [_SYMB_MAC] = LAYOUT(
+  [_SYMB] = LAYOUT(
     XXXXXXX, KC_F1,      KC_F2,      KC_F3,      KC_F4,   KC_F5,                                              XXXXXXX, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,
     KC_VOLU, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, _______,                          XXXXXXX, XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, XXXXXXX, XXXXXXX,
     KC_VOLD, LGUI(BP_X), LGUI(BP_C), LGUI(BP_V),    XXXXXXX, XXXXXXX, XXXXXXX,                          XXXXXXX, XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, XXXXXXX, XXXXXXX,
     _______, LGUI(BP_X), LGUI(BP_C), LGUI(BP_V), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        _______, _______, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX,    XXXXXXX,    XXXXXXX,         XXXXXXX,     _______, _______,        _______, _______,      KC_KP_0,     KC_KP_0, KC_PDOT, XXXXXXX, XXXXXXX
-  ),
-
-  [_SYMB] = LAYOUT(
-    XXXXXXX, KC_F1,      KC_F2,      KC_F3,      KC_F4,   KC_F5,                                              XXXXXXX, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,
-    KC_VOLU, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, _______,                          XXXXXXX, XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, XXXXXXX, XXXXXXX,
-    KC_VOLD, LCTL(BP_X), LCTL(BP_C), LCTL(BP_V),    XXXXXXX, XXXXXXX, XXXXXXX,                          XXXXXXX, XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, XXXXXXX, XXXXXXX,
-    _______, LCTL(BP_X), LCTL(BP_C), LCTL(BP_V), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        _______, _______, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX,    XXXXXXX,    XXXXXXX,         XXXXXXX,     _______, _______,        _______, _______,      KC_KP_0,     KC_KP_0, KC_PDOT, XXXXXXX, XXXXXXX
+    _______, XXXXXXX,    XXXXXXX,    XXXXXXX,         XXXXXXX,     _______, _______,        _______, _______,      KC_KP_0,     KC_KP_0, KC_PDOT, CG_TOGG, XXXXXXX
   ),
 
 /* Navigation
